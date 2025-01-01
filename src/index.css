@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+}
+
+body {
+  @apply bg-stone-100;
+}
+
+.card-base {
+  @apply bg-white rounded-xl border border-stone-200 shadow-sm;
+}
+
+.text-color-primary {
+  color: var(--color-primary);
+}
+
+.checkbox-base {
+  @apply h-4 w-4 rounded-md border-stone-300 bg-stone-100;
+  accent-color: var(--color-primary-dark);
+}
+
+/* Überschreibe die Standard-Checkbox-Styles */
+.checkbox-base {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #d1d5db; /* stone-300 */
+  border-radius: 0.375rem;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+}
+
+.checkbox-base:checked {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.checkbox-base:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
